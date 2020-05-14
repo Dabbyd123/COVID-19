@@ -17,7 +17,7 @@ export default () => (
   <ThemeProvider theme={theme}>
     <Wrapper>
       <NavBar>
-        <NavHeader>Live Coronavirus Tracker</NavHeader>
+        <NavHeader>Live COVID-19 Tracker</NavHeader>
       </NavBar>
       <GlobalStats></GlobalStats>
       <USAStats></USAStats>
