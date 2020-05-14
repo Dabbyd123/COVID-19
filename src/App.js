@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { styled, ThemeProvider } from 'styled-components';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Wrapper from './containers/Wrapper';
+import NavBar from './components/NavBar';
+import GlobalStats from './containers/GlobalStats';
+import USAStats from './containers/USAStats';
+import NavHeader from './components/NavHeader';
+import StateStats from './containers/StateStats';
 
-export default App;
+const theme = {
+  font: 'Sans-Serif'
+};
+
+
+export default () => (
+  <ThemeProvider theme={theme}>
+    <Wrapper>
+      <NavBar>
+        <NavHeader>Live Coronavirus Tracker</NavHeader>
+      </NavBar>
+      <GlobalStats></GlobalStats>
+      <USAStats></USAStats>
+      <StateStats></StateStats>
+    </Wrapper>
+  </ThemeProvider>
+);
+

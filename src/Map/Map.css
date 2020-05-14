@@ -1,0 +1,14 @@
+.leaflet-container {
+    height: 600px;
+    width: 45vw;
+    grid-column: 1;
+    grid-row: 4;
+}
+
+@media only screen and (max-width: 768px) {
+    .leaflet-container {
+        width: 100vw;
+        height: 425px;
+        align-self: center;
+    }
+}
