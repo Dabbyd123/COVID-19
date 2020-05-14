@@ -113,9 +113,9 @@ export default () => {
             id="state-dropdown"
             onChange={e => getSelectedState(e.target.value)}
             value={selectedState}
+            placeholder='Choose State'
             disabled={!dropDownList.length}
         >
-            <option>Choose State</option>
             {dropDownList.map((item) => <option key={item} value={item}>{item}</option>)}
         </DropDown >
 

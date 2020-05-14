@@ -24,7 +24,7 @@ position: static;
 
 @media only screen and (max-width: 420px) {
     font-size: 10px;
-    width: 25%;
+    width: 30%;
     height: 30px
 }
 `
