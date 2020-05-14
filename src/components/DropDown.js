@@ -14,6 +14,7 @@ background-image: -webkit-gradient(linear, 0% 0%, 75% 100%, from(#f000ff), to(#4
     -webkit-text-fill-color: transparent;
 font-size: 20px;
 box-shadow: 0 0 10px grey;
+position: static;
 
 @media only screen and (max-width: 768px) {
     font-size: 10px;
