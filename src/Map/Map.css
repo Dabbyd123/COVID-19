@@ -7,8 +7,9 @@
 
 @media only screen and (max-width: 768px) {
     .leaflet-container {
-        width: 100vw;
-        height: 425px;
+        width: 90vw;
+        height: 400px;
         align-self: center;
+        margin-bottom: 25px;
     }
 }

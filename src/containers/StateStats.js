@@ -187,7 +187,7 @@ export default () => {
 
                 {state.post.length > 0 && <CitiesTable>
                     <THEAD>
-                        <TH><strong>City/County</strong></TH>
+                        <TH><strong>County</strong></TH>
                         <TH><strong>Confirmed Cases</strong></TH>
                         <TH><strong>Confirmed Diff</strong></TH>
                         <TH><strong>Deaths</strong></TH>

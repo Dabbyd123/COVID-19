@@ -20,17 +20,17 @@ background: -webkit-gradient(linear, 0% 0%, 75% 100%, from(#f000ff), to(#4deeea)
 }
 
 @media only screen and (max-width: 1200px) {
-    font-size: 12px;
+    font-size: 16px;
     padding: 7px
 }
 
 @media only screen and (max-width: 992px) {
-    font-size: 10px;
+    font-size: 16px;
     padding: 5px;
 }
 
 @media only screen and (max-width: 768px) {
-    font-size: 11px;
+    font-size: 12px;
     padding: 5px;
     width: 100vw;
 }

@@ -13,11 +13,12 @@ const theme = {
 };
 
 
+
 export default () => (
   <ThemeProvider theme={theme}>
     <Wrapper>
       <NavBar>
-        <NavHeader>Live COVID-19 Tracker</NavHeader>
+        <NavHeader><img src='/5729669-128.png' /> Live COVID-19 Tracker</NavHeader>
       </NavBar>
       <GlobalStats></GlobalStats>
       <USAStats></USAStats>

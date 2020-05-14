@@ -21,7 +21,7 @@ width: ${props => props.states ? '80vw' : '70vw'};
 
 @media only screen and (max-width: 768px) {
 width: 75vw;
-height: ${props => props.states ? '50vh' : '50vh'};
+height: ${props => props.states ? '30vh' : '50vh'};
 flex-direction: column;
 }
 

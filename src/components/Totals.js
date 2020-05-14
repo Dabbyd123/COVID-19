@@ -18,7 +18,7 @@ letter-spacing: 1px;
 }
 
 @media only screen and (max-width: 768px) {
-    font-size: ${props => props.time ? '12px' : '25px'};
+    font-size: ${props => props.time ? '14px' : '28px'};
 }
 
 @media only screen and (max-width: 480px) {
