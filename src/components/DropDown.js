@@ -20,4 +20,10 @@ box-shadow: 0 0 10px grey;
     width: 20%;
     height: 30px
 }
+
+@media only screen and (max-width: 420px) {
+    font-size: 10px;
+    width: 25%;
+    height: 30px
+}
 `
