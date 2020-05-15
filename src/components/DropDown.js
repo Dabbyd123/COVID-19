@@ -19,7 +19,8 @@ position: static;
 @media only screen and (max-width: 768px) {
     font-size: 10px;
     width: 25%;
-    height: 30px
+    height: 30px;
+    background-image: none;
 }
 
 @media only screen and (max-width: 420px) {
