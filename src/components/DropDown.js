@@ -17,13 +17,14 @@ box-shadow: 0 0 10px grey;
 position: static;
 
 @media only screen and (max-width: 768px) {
+    display: block;
     font-size: 10px;
     width: 25%;
-    height: 30px;
-    background-image: none;
+    height: 30px
 }
 
 @media only screen and (max-width: 420px) {
+    display: block;
     font-size: 10px;
     width: 25%;
     height: 30px
