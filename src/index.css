@@ -11,15 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-img {
-  width: 23px;
-  height: 23px
-}
-
-@media only screen and (max-width: 768px) {
-  img {
-    width: 18px;
-    height: 18px
-  }
-}

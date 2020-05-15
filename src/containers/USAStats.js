@@ -47,13 +47,14 @@ export default () => {
             <CardHeader usa>- USA -</CardHeader>
             <Card usa>
                 {USATotal === null ? <Loading color='lightgrey' type='cylon'></Loading> : null}
-                {USATotal && <Totals cases>Total Cases: &nbsp; <strong>{USATotal.countries_stat[1].cases}</strong></Totals>}
-                {USATotal && <Totals active>Active Cases: &nbsp; <strong>{USATotal.countries_stat[1].active_cases}</strong></Totals>}
-                {USATotal && <Totals deaths>Critical: &nbsp; <strong>{USATotal.countries_stat[1].serious_critical}</strong></Totals>}
-                {USATotal && <Totals deaths>Deaths: &nbsp; <strong>{USATotal.countries_stat[1].deaths}</strong></Totals>}
-                {USATotal && <Totals recovered>Total Recovered: &nbsp; <strong>{USATotal.countries_stat[1].total_recovered}</strong></Totals>}
+                {USATotal && <Totals active>Active Cases: &nbsp; <strong>{USATotal.countries_stat[8].new_cases}</strong></Totals>}
+                {USATotal && <Totals active>New Cases: &nbsp; <strong>{USATotal.countries_stat[8].active_cases}</strong></Totals>}
+                {USATotal && <Totals deaths>Deaths: &nbsp; <strong>{USATotal.countries_stat[8].new_deaths}</strong></Totals>}
+                {USATotal && <Totals deaths>New Deaths: &nbsp; <strong>{USATotal.countries_stat[8].deaths}</strong></Totals>}
+                {USATotal && <Totals recovered>Total Recovered: &nbsp; <strong>{USATotal.countries_stat[8].total_recovered}</strong></Totals>}
                 {USATotal && <Totals time>*Last Updated: &nbsp; {moment(USATotal.statistics_taken_at).tz("America/Chicago").format('MM-DD-YYYY HH:mm:ss z')}</Totals>}
             </Card>
+            {console.log(USATotal)}
         </Container>
 
     )

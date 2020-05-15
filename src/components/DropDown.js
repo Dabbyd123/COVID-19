@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 export default styled.select`
-display: flex;
+display: block;
 margin: 50px auto;
 width: 25%;
 height: 40px;

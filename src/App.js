@@ -7,6 +7,7 @@ import GlobalStats from './containers/GlobalStats';
 import USAStats from './containers/USAStats';
 import NavHeader from './components/NavHeader';
 import StateStats from './containers/StateStats';
+import Logo from './components/Logo';
 
 const theme = {
   font: 'Sans-Serif'
@@ -18,7 +19,7 @@ export default () => (
   <ThemeProvider theme={theme}>
     <Wrapper>
       <NavBar>
-        <NavHeader><img src='/5729669-128.png' /> Live COVID-19 Tracker</NavHeader>
+        <NavHeader><Logo src='/5729669-128.png' /> Live COVID-19 Tracker</NavHeader>
       </NavBar>
       <GlobalStats></GlobalStats>
       <USAStats></USAStats>
