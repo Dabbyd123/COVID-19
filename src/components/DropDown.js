@@ -18,13 +18,13 @@ position: static;
 
 @media only screen and (max-width: 768px) {
     font-size: 10px;
-    width: 20%;
+    width: 25%;
     height: 30px
 }
 
 @media only screen and (max-width: 420px) {
     font-size: 10px;
-    width: 30%;
+    width: 25%;
     height: 30px
 }
 `
