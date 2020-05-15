@@ -112,9 +112,7 @@ export default () => {
         <DropDown
             id="state-dropdown"
             onChange={e => getSelectedState(e.target.value)}
-            value={selectedState}
-            placeholder='Choose State'
-            onBlur={selectedState}
+            value={selectedState.toString()}
             disabled={!dropDownList.length}
         >
             <option>Choose State</option>
