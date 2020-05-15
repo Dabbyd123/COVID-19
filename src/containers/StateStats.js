@@ -163,10 +163,8 @@ export default () => {
 
                 {state.post.length > 0 ? <CardHeader>{state.post[0].region.province}</CardHeader> : <CardHeader>- By State -</CardHeader>}
 
-                <label>
-                    {dropDown}
-                    {state.loading || ((state.post.length > 0) && (selectedState !== state.post[0].region.province)) || (selectedState !== "") && (state.post.length === 0) ? <Loading color='lightgrey' type='cylon'></Loading> : null}
-                </label>
+                {dropDown}
+                {state.loading || ((state.post.length > 0) && (selectedState !== state.post[0].region.province)) || (selectedState !== "") && (state.post.length === 0) ? <Loading color='lightgrey' type='cylon'></Loading> : null}
 
                 <Card states>
 
