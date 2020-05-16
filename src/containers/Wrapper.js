@@ -9,6 +9,6 @@ padding-bottom: 50px;
 display: grid;
 grid-template-rows: auto;
 grid-template-columns: 1fr 1fr;
-grid-row-gap: 50px;
+grid-row-gap: 35px;
 overflow-x: hidden;
 `
