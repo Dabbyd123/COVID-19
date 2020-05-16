@@ -11,7 +11,6 @@ const Container = styled.div`
 grid-row: 2;
 grid-column: 1;
 place-self: center center;
-margin-bottom: 25px;
 
 @media only screen and (max-width: 1200px) {
 grid-column: 1/3;

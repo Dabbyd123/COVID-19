@@ -3,7 +3,6 @@ import Card from '../components/Card';
 import CardHeader from '../components/CardHeader';
 import Totals from '../components/Totals';
 import axios from 'axios';
-import DropDown from '../components/DropDown';
 import moment from 'moment-timezone';
 import Loading from '../components/Loading';
 import CitiesTable from '../components/CitiesTable';
@@ -11,6 +10,7 @@ import Map from '../Map/Map';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import Select from 'react-select';
 
 
 
@@ -37,6 +37,12 @@ const StateContainer = styled.div`
 grid-row: 3;
 grid-column: 1/3;
 justify-self: center;
+`
+
+const DropDownWrapper = styled.div`
+width: 35vw;
+height: 100%;
+margin: 25px auto;
 `
 
 const TH = styled.th`
@@ -104,26 +110,15 @@ function reducer(state, action) {
 export default () => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const [active, setActive] = useState('');
-    const [selectedState, getSelectedState] = useState('');
-    const dropDownList = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Florida', 'Georgia', 'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Minor Outlying Islands', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'U.S. Virgin Islands', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
+    const [selectedState, setSelectedState] = useState('');
+    const dropDownList = [{ value: 'Alabama', label: 'Alabama' }, { value: 'Alaska', label: 'Alaska' }, { value: 'Arizona', label: 'Arizona' }, { value: 'Arkansas', label: 'Arkansas' }, { value: 'California', label: 'California' }, { value: 'Colorado', label: 'Colorado' }, { value: 'Connecticut', label: 'Connecticut' }, { value: 'Delaware', label: 'Delaware' }, { value: 'District of Columbia', label: 'District of Columbia' }, { value: 'Florida', label: 'Florida' }, { value: 'Georgia', label: 'Georgia' }, { value: 'Guam', label: 'Guam' }, { value: 'Hawaii', label: 'Hawaii' }, { value: 'Idaho', label: 'Idaho' }, { value: 'Illinois', label: 'Illinois' }, { value: 'Indiana', label: 'Indiana' }, { value: 'Iowa', label: 'Iowa' }, { value: 'Kansas', label: 'Kansas' }, { value: 'Kentucky', label: 'Kentucky' }, { value: 'Louisiana', label: 'Louisiana' }, { value: 'Maine', label: 'Maine' }, { value: 'Maryland', label: 'Maryland' }, { value: 'Massachusetts', label: 'Massachusetts' }, { value: 'Michigan', label: 'Michigan' }, { value: 'Minnesota', label: 'Minnesota' }, { value: 'Mississippi', label: 'Mississippi' }, { value: 'Missouri', label: 'Missouri' }, { value: 'Montana', label: 'Montana' }, { value: 'Nebraska', label: 'Nebraska' }, { value: 'Nevada', label: 'Nevada' }, { value: 'New Hampshire', label: 'New Hampshire' }, { value: 'New Jersey', label: 'New Jersey' }, { value: 'New Mexico', label: 'New Mexico' }, { value: 'New York', label: 'New York' }, { value: 'North Carolina', label: 'North Carolina' }, { value: 'North Dakota', label: 'North Dakota' }, { value: 'Ohio', label: 'Ohio' }, { value: 'Oklahoma', label: 'Oklahoma' }, { value: 'Oregon', label: 'Oregon' }, { value: 'Pennsylvania', label: 'Pennsylvania' }, { value: 'Puerto Rico', label: 'Puerto Rico' }, { value: 'Rhode Island', label: 'Rhode Island' }, { value: 'South Carolina', label: 'South Carolina' }, { value: 'South Dakota', label: 'South Dakota' }, { value: 'Tennessee', label: 'Tennessee' }, { value: 'Texas', label: 'Texas' }, { value: 'U.S. Virgin Islands', label: 'U.S. Virgin Islands' }, { value: 'Utah', label: 'Utah' }, { value: 'Vermont', label: 'Vermont' }, { value: 'Virginia', label: 'Virginia' }, { value: 'Washington', label: 'Washington' }, { value: 'West Virginia', label: 'West Virginia' }, { value: 'Wisconsin', label: 'Wisconsin' }, { value: 'Wyoming', label: 'Wyoming' }];
 
-
-    const dropDown =
-        <DropDown
-            id="state-dropdown"
-            onChange={e => getSelectedState(e.target.value)}
-            value={selectedState.toString()}
-            disabled={!dropDownList.length}
-        >
-            <option>Choose State</option>
-            {dropDownList.map((item) => <option key={item} value={item}>{item}</option>)}
-        </DropDown >
 
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios((`https://covid-19-statistics.p.rapidapi.com/reports?&iso=USA&region_name=US&date=2020-04-16&q=US%20${selectedState}`), {
+                const response = await axios((`https://covid-19-statistics.p.rapidapi.com/reports?&iso=USA&region_name=US&date=2020-04-16&q=US%20${selectedState.value}`), {
                     "method": "GET",
                     "headers": {
                         "x-rapidapi-host": "covid-19-statistics.p.rapidapi.com",
@@ -153,16 +148,22 @@ export default () => {
         })
     }
 
-
+    console.log(selectedState)
     return (
 
         < StatesWrapper >
             <StateContainer>
 
                 {state.post.length > 0 ? <CardHeader>{state.post[0].region.province}</CardHeader> : <CardHeader>- By State -</CardHeader>}
-
-                {dropDown}
-                {state.loading || ((state.post.length > 0) && (selectedState !== state.post[0].region.province)) || (selectedState !== "") && (state.post.length === 0) ? <Loading color='lightgrey' type='cylon'></Loading> : null}
+                <DropDownWrapper>
+                    <Select
+                        options={dropDownList}
+                        placeholder='Select State...'
+                        onChange={setSelectedState}
+                        isSearchable
+                    />
+                </DropDownWrapper>
+                {state.loading || ((state.post.length > 0) && (selectedState.value !== state.post[0].region.province)) || (selectedState !== "") && (state.post.length === 0) ? <Loading color='lightgrey' type='cylon'></Loading> : null}
 
                 <Card states>
 
