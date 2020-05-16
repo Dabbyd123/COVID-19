@@ -158,7 +158,6 @@ export default () => {
                 <DropDownWrapper>
                     <Select
                         options={dropDownList}
-                        placeholder='Select State...'
                         onChange={setSelectedState}
                         isSearchable
                     />
