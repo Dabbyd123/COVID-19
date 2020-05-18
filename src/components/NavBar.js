@@ -5,7 +5,7 @@ width: 100vw;
 height: 55px;
 grid-column: 1/3;
 grid-row: 1;
-background-color: rgba(15,15,15,.7);
+background-color: #1b1b1b;
 margin: 0;
 display: flex;
 align-items: center;

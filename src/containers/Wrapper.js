@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default styled.div`
 min-height: 100vh;
 width: 100vw;
-background-color: rgba(15,15,15,.9);
+background-color: #424242;
 margin: 0 auto;
 padding-bottom: 50px;
 display: grid;

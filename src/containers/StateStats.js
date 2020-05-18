@@ -30,7 +30,7 @@ margin-bottom: 75px;
 
 const StatesWrapper = styled.div`
 grid-column: 1/3;
-background: rgba(15,15,15,.7);
+background: #1b1b1b;
 `
 
 const StateContainer = styled.div`
