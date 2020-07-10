@@ -19,8 +19,8 @@ grid-column: 1/3;
 grid-row: 4;
 display: flex;
 justify-content: space-evenly;
-margin-top: 75px;
-margin-bottom: 75px;
+margin-top: 50px;
+flex-direction: column;
 
 @media only screen and (max-width: 768px){
     width: 100vw;
@@ -118,7 +118,7 @@ export default () => {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios((`https://covid-19-statistics.p.rapidapi.com/reports?&iso=USA&region_name=US&date=2020-04-16&q=US%20${selectedState.value}`), {
+                const response = await axios((`https://covid-19-statistics.p.rapidapi.com/reports?region_province=${selectedState.value}&iso=USA&q=US%20${selectedState.value}`), {
                     "method": "GET",
                     "headers": {
                         "x-rapidapi-host": "covid-19-statistics.p.rapidapi.com",

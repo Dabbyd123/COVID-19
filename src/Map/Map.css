@@ -1,7 +1,7 @@
 .leaflet-container {
     height: 600px;
-    width: 45vw;
-    grid-column: 1;
+    width: 80vw;
+    align-self: center;
     grid-row: 4;
 }
 
