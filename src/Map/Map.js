@@ -25,7 +25,7 @@ export default ({ latitude, longitude, cities, clicked }) => {
 
     return (
 
-        <Map center={[latitude, longitude]} zoom={5} setView scrollWheelZoom={false}>
+        <Map center={[latitude, longitude]} zoom={6.5} setView scrollWheelZoom={false}>
             <TileLayer
                 attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -42,6 +42,7 @@ export default ({ latitude, longitude, cities, clicked }) => {
                     icon={Number(e.confirmed) === Math.max(...confirmedArr) ? redMarker : (e.name === clicked) || (activeCity && e.name === activeCity.name) ? goldMarker : blueIcon}
                 />
             ))}
+
 
 
             {activeCity && (
