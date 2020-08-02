@@ -60,7 +60,6 @@ width: 100%;
 const TDWarning = styled.tr`
 font-size: 10px;
 width: 100%;
-padding-bottom: 10px;
 
 @media only screen and (max-width: 768px) {
     padding: 5px;
@@ -79,7 +78,9 @@ height: 40px;
 padding: 10px;
 border-collapse: collapse;
 `
-
+const Span = styled.span`
+color: red;
+`
 
 
 const initialState = {
@@ -183,37 +184,39 @@ export default () => {
             <MapWrapper>
                 {state.post.length > 0 ? <Map clicked={active} latitude={state.post[0].region.lat} longitude={state.post[0].region.long} cities={state.post[0].region.cities}></Map> : null}
 
-                {state.post.length > 0 && <CitiesTable>
-                    <THEAD>
-                        <TH><strong>County</strong></TH>
-                        <TH><strong>Confirmed Cases</strong></TH>
-                        <TH><strong>Confirmed Diff</strong></TH>
-                        <TH><strong>Deaths</strong></TH>
-                        <TH><strong>Deaths Diff</strong></TH>
-                        <TDWarning>
-                            <FontAwesomeIcon icon={faExclamationTriangle} /> = the city/county with the highest number of confirmed cases in that state.
+                {state.post.length > 0 &&
+                    <CitiesTable>
+                        <THEAD>
+                            <TDWarning>
+                                <Span><FontAwesomeIcon icon={faExclamationTriangle} /> </Span>= the city/county with the highest number of confirmed cases in that state.
                         </TDWarning>
-                    </THEAD>
-                    <tbody>
-                        {state.post[0].region.cities.map((e, i) => {
-                            return (
-                                <TR id={e.name} key={i} onClick={clickHandler}>
-                                    <td id={e.name}>
-                                        {Number(e.confirmed) === Math.max(...state.post[0].region.cities.map(e =>
-                                            Number(e.confirmed))) ?
-                                            <FontAwesomeIcon icon={faExclamationTriangle} /> : null}
-                                        {e.name}
-                                    </td>
-                                    <td id={e.name}>{e.confirmed}</td>
-                                    <td id={e.name}>{e.confirmed_diff}</td>
-                                    <td id={e.name}>{e.deaths}</td>
-                                    <td id={e.name}>{e.deaths_diff}</td>
+                            <TH><strong>County</strong></TH>
+                            <TH><strong>Confirmed Cases</strong></TH>
+                            <TH><strong>Confirmed Diff</strong></TH>
+                            <TH><strong>Deaths</strong></TH>
+                            <TH><strong>Deaths Diff</strong></TH>
 
-                                </TR>
-                            )
-                        })}
-                    </tbody>
-                </CitiesTable>}
+                        </THEAD>
+                        <tbody>
+                            {state.post[0].region.cities.map((e, i) => {
+                                return (
+                                    <TR id={e.name} key={i} onClick={clickHandler}>
+                                        <td id={e.name}>
+                                            {Number(e.confirmed) === Math.max(...state.post[0].region.cities.map(e =>
+                                                Number(e.confirmed))) ?
+                                                <Span><FontAwesomeIcon icon={faExclamationTriangle} /> &nbsp;</Span> : null}
+                                            {e.name}
+                                        </td>
+                                        <td id={e.name}>{e.confirmed}</td>
+                                        <td id={e.name}>{e.confirmed_diff}</td>
+                                        <td id={e.name}>{e.deaths}</td>
+                                        <td id={e.name}>{e.deaths_diff}</td>
+
+                                    </TR>
+                                )
+                            })}
+                        </tbody>
+                    </CitiesTable>}
             </MapWrapper>
         </StatesWrapper >
     )

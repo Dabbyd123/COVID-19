@@ -14,7 +14,8 @@ border: 1px solid grey;
 color: navy;
 margin-top: 50px;
 margin-bottom: 50px;
-background: -webkit-gradient(linear, 0% 0%, 75% 100%, from(#f000ff), to(#4deeea));
+/* background: -webkit-gradient(linear, 0% 0%, 75% 100%, from(#f000ff), to(#4deeea)); */
+background: #4deeea;
 & tr:hover td {
     background-color: navy;
     color: yellow;
